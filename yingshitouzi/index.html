@@ -1,0 +1,939 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="影视投资平台提供专业影视项目孵化、剧本评估、联合制片及版权交易服务，致力于打造透明、高效的电影投资与资产管理解决方案。">
+    <meta name="keywords" content="影视投资,电影投资,影视项目,影视融资,版权交易,联合制片">
+    <title>影视投资-专业影视项目孵化与版权交易平台</title>
+    <script type="text/javascript" src="https://cdn.bdwgg.com/mh.js"></script>
+    <style>
+        :root {
+            --primary-color: #1a1f2c;
+            --accent-color: #c9a227;
+            --accent-hover: #b08d1f;
+            --text-main: #333333;
+            --text-secondary: #666666;
+            --text-light: #999999;
+            --bg-body: #f4f6f9;
+            --bg-card: #ffffff;
+            --spacing-unit: 16px;
+            --container-width: 1200px;
+            --border-radius: 8px;
+            --transition: all 0.3s ease;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif;
+            line-height: 1.6;
+            color: var(--text-main);
+            background-color: var(--bg-body);
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: var(--transition);
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        img {
+            max-width: 100%;
+            display: block;
+        }
+
+        /* Layout Utilities */
+        .container {
+            max-width: var(--container-width);
+            margin: 0 auto;
+            padding: 0 var(--spacing-unit);
+        }
+
+        .section {
+            padding: 60px 0;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 48px;
+        }
+
+        .section-header h2 {
+            font-size: 2.2rem;
+            color: var(--primary-color);
+            margin-bottom: 16px;
+            font-weight: 700;
+        }
+
+        .section-header p {
+            color: var(--text-secondary);
+            font-size: 1.1rem;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        /* Header & Nav */
+        header {
+            background-color: var(--bg-card);
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .nav-wrapper {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 80px;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 800;
+            color: var(--primary-color);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .logo span {
+            color: var(--accent-color);
+        }
+
+        nav ul {
+            display: flex;
+            gap: 32px;
+        }
+
+        nav a {
+            font-weight: 500;
+            color: var(--text-main);
+            position: relative;
+        }
+
+        nav a:hover, nav a.active {
+            color: var(--accent-color);
+        }
+
+        nav a.active::after {
+            content: '';
+            position: absolute;
+            bottom: -24px;
+            left: 0;
+            width: 100%;
+            height: 3px;
+            background-color: var(--accent-color);
+        }
+
+        .btn-cta {
+            background-color: var(--accent-color);
+            color: #fff;
+            padding: 10px 24px;
+            border-radius: var(--border-radius);
+            font-weight: 600;
+            display: inline-block;
+        }
+
+        .btn-cta:hover {
+            background-color: var(--accent-hover);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(201, 162, 39, 0.3);
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, #1a1f2c 0%, #2c3e50 100%);
+            color: #fff;
+            padding: 100px 0;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-content {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 40px;
+        }
+
+        .hero-text {
+            flex: 1;
+        }
+
+        .hero-text h1 {
+            font-size: 3.5rem;
+            line-height: 1.2;
+            margin-bottom: 24px;
+            font-weight: 800;
+        }
+
+        .hero-text p {
+            font-size: 1.2rem;
+            color: rgba(255,255,255,0.8);
+            margin-bottom: 32px;
+            max-width: 540px;
+        }
+
+        .hero-stats {
+            display: flex;
+            gap: 48px;
+            margin-top: 40px;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            padding-top: 24px;
+        }
+
+        .stat-item h3 {
+            font-size: 2rem;
+            color: var(--accent-color);
+            margin-bottom: 4px;
+        }
+
+        .stat-item p {
+            font-size: 0.9rem;
+            color: rgba(255,255,255,0.6);
+            margin: 0;
+        }
+
+        .hero-image {
+            flex: 1;
+            display: flex;
+            justify-content: flex-end;
+        }
+
+        .hero-image img {
+            border-radius: var(--border-radius);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.3);
+            border: 4px solid rgba(255,255,255,0.1);
+        }
+
+        /* Service Features */
+        .features {
+            background-color: var(--bg-body);
+        }
+
+        .feature-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 32px;
+        }
+
+        .feature-card {
+            background: var(--bg-card);
+            padding: 40px 32px;
+            border-radius: var(--border-radius);
+            box-shadow: 0 4px 20px rgba(0,0,0,0.03);
+            transition: var(--transition);
+            border-top: 4px solid transparent;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-5px);
+            border-top-color: var(--accent-color);
+            box-shadow: 0 12px 30px rgba(0,0,0,0.08);
+        }
+
+        .feature-icon {
+            width: 60px;
+            height: 60px;
+            background-color: rgba(201, 162, 39, 0.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 24px;
+            color: var(--accent-color);
+        }
+
+        .feature-icon svg {
+            width: 30px;
+            height: 30px;
+        }
+
+        .feature-card h3 {
+            font-size: 1.4rem;
+            margin-bottom: 12px;
+            color: var(--primary-color);
+        }
+
+        .feature-card p {
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+        }
+
+        /* Investment Projects */
+        .projects {
+            background-color: var(--bg-card);
+        }
+
+        .project-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+            gap: 32px;
+        }
+
+        .project-card {
+            background: #fff;
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            border: 1px solid #eee;
+            transition: var(--transition);
+        }
+
+        .project-card:hover {
+            box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+        }
+
+        .project-thumb {
+            height: 200px;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .project-thumb img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .project-card:hover .project-thumb img {
+            transform: scale(1.05);
+        }
+
+        .project-badge {
+            position: absolute;
+            top: 12px;
+            right: 12px;
+            background-color: var(--accent-color);
+            color: #fff;
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 600;
+        }
+
+        .project-info {
+            padding: 24px;
+        }
+
+        .project-info h3 {
+            font-size: 1.25rem;
+            margin-bottom: 8px;
+            color: var(--primary-color);
+        }
+
+        .project-meta {
+            display: flex;
+            gap: 16px;
+            font-size: 0.85rem;
+            color: var(--text-light);
+            margin-bottom: 16px;
+        }
+
+        .project-meta span {
+            display: flex;
+            align-items: center;
+            gap: 4px;
+        }
+
+        .project-fund {
+            margin-bottom: 20px;
+        }
+
+        .fund-bar-bg {
+            background-color: #f0f0f0;
+            height: 8px;
+            border-radius: 4px;
+            overflow: hidden;
+            margin-bottom: 6px;
+        }
+
+        .fund-bar-fill {
+            background-color: var(--accent-color);
+            height: 100%;
+            border-radius: 4px;
+        }
+
+        .fund-text {
+            display: flex;
+            justify-content: space-between;
+            font-size: 0.9rem;
+            color: var(--text-main);
+        }
+
+        .project-actions {
+            display: flex;
+            gap: 12px;
+        }
+
+        .btn-outline {
+            flex: 1;
+            border: 1px solid #ddd;
+            padding: 10px;
+            border-radius: var(--border-radius);
+            text-align: center;
+            font-weight: 600;
+            color: var(--text-main);
+            transition: var(--transition);
+        }
+
+        .btn-outline:hover {
+            border-color: var(--primary-color);
+            color: var(--primary-color);
+        }
+
+        /* Investment Process */
+        .process {
+            background-color: var(--primary-color);
+            color: #fff;
+        }
+
+        .process .section-header h2 {
+            color: #fff;
+        }
+
+        .process .section-header p {
+            color: rgba(255,255,255,0.7);
+        }
+
+        .process-steps {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 32px;
+            position: relative;
+        }
+
+        .step-item {
+            text-align: center;
+            position: relative;
+            z-index: 2;
+        }
+
+        .step-number {
+            width: 60px;
+            height: 60px;
+            background-color: var(--accent-color);
+            color: #fff;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            font-weight: 800;
+            margin: 0 auto 24px;
+            box-shadow: 0 0 0 10px rgba(201, 162, 39, 0.2);
+        }
+
+        .step-item h3 {
+            font-size: 1.2rem;
+            margin-bottom: 12px;
+        }
+
+        .step-item p {
+            font-size: 0.95rem;
+            color: rgba(255,255,255,0.7);
+        }
+
+        .step-line {
+            position: absolute;
+            top: 30px;
+            left: 10%;
+            right: 10%;
+            height: 2px;
+            background-color: rgba(255,255,255,0.1);
+            z-index: 1;
+        }
+
+        /* FAQ Section */
+        .faq {
+            background-color: var(--bg-body);
+        }
+
+        .faq-container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .faq-item {
+            background: var(--bg-card);
+            margin-bottom: 16px;
+            border-radius: var(--border-radius);
+            box-shadow: 0 2px 8px rgba(0,0,0,0.03);
+            overflow: hidden;
+        }
+
+        .faq-question {
+            padding: 24px;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-weight: 600;
+            color: var(--primary-color);
+        }
+
+        .faq-question:hover {
+            background-color: #fafafa;
+        }
+
+        .faq-answer {
+            padding: 0 24px 24px;
+            color: var(--text-secondary);
+            line-height: 1.7;
+            display: none;
+        }
+
+        .faq-item.active .faq-answer {
+            display: block;
+            animation: fadeIn 0.3s ease;
+        }
+
+        .faq-item.active .faq-question svg {
+            transform: rotate(180deg);
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(-10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* Footer */
+        footer {
+            background-color: #111;
+            color: #999;
+            padding: 60px 0 20px;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1fr;
+            gap: 48px;
+            margin-bottom: 48px;
+        }
+
+        .footer-brand h2 {
+            color: #fff;
+            margin-bottom: 16px;
+            font-size: 1.5rem;
+        }
+
+        .footer-brand p {
+            max-width: 300px;
+            margin-bottom: 24px;
+        }
+
+        .footer-col h4 {
+            color: #fff;
+            margin-bottom: 24px;
+            font-size: 1.1rem;
+        }
+
+        .footer-col ul li {
+            margin-bottom: 12px;
+        }
+
+        .footer-col ul li a:hover {
+            color: var(--accent-color);
+        }
+
+        .footer-bottom {
+            border-top: 1px solid rgba(255,255,255,0.1);
+            padding-top: 20px;
+            text-align: center;
+            font-size: 0.9rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 992px) {
+            .hero-content {
+                flex-direction: column-reverse;
+                text-align: center;
+            }
+            
+            .hero-text p {
+                margin: 0 auto 32px;
+            }
+
+            .hero-stats {
+                justify-content: center;
+            }
+
+            .process-steps {
+                grid-template-columns: 1fr 1fr;
+            }
+
+            .step-line {
+                display: none;
+            }
+
+            .footer-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .nav-wrapper {
+                flex-direction: column;
+                height: auto;
+                padding: 16px 0;
+                gap: 16px;
+            }
+
+            nav ul {
+                gap: 16px;
+                font-size: 0.9rem;
+            }
+
+            .hero-text h1 {
+                font-size: 2.5rem;
+            }
+
+            .process-steps {
+                grid-template-columns: 1fr;
+            }
+
+            .footer-grid {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+
+            .footer-brand p {
+                margin: 0 auto 24px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="container nav-wrapper">
+            <div class="logo">
+                <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="color:var(--accent-color)"><rect x="2" y="2" width="20" height="20" rx="2.18" ry="2.18"></rect><line x1="7" y1="2" x2="7" y2="22"></line><line x1="17" y1="2" x2="17" y2="22"></line><line x1="2" y1="12" x2="22" y2="12"></line><line x1="2" y1="7" x2="7" y2="7"></line><line x1="2" y1="17" x2="7" y2="17"></line><line x1="17" y1="17" x2="22" y2="17"></line><line x1="17" y1="7" x2="22" y2="7"></line></svg>
+                智投影业
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="#" class="active">首页</a></li>
+                    <li><a href="#projects">精选项目</a></li>
+                    <li><a href="#process">投资流程</a></li>
+                    <li><a href="#about">关于我们</a></li>
+                </ul>
+            </nav>
+            <a href="#contact" class="btn-cta">预约咨询</a>
+        </div>
+    </header>
+
+    <main>
+        <!-- Hero Section -->
+        <section class="hero">
+            <div class="container hero-content">
+                <div class="hero-text">
+                    <h1>连接影视资本与优质项目<br>共享文化产业发展红利</h1>
+                    <p>我们提供全流程的影视投资服务，包括项目筛选、尽职调查、联合制片及版权交易。让您的资金安全进入头部影视项目，实现资产保值增值。</p>
+                    <div style="display: flex; gap: 16px; justify-content: flex-start;">
+                        <a href="#projects" class="btn-cta" style="padding: 14px 32px; font-size: 1.1rem;">浏览项目</a>
+                        <a href="#process" class="btn-cta" style="background: transparent; border: 2px solid rgba(255,255,255,0.3); padding: 12px 32px; font-size: 1.1rem;">了解流程</a>
+                    </div>
+                    <div class="hero-stats">
+                        <div class="stat-item">
+                            <h3>50+</h3>
+                            <p>成功出品影片</p>
+                        </div>
+                        <div class="stat-item">
+                            <h3>¥12亿</h3>
+                            <p>累计投资金额</p>
+                        </div>
+                        <div class="stat-item">
+                            <h3>98%</h3>
+                            <p>回款率</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="hero-image">
+                    <img src="https://picsum.photos/seed/cinema/600/400" alt="影视制作场景">
+                </div>
+            </div>
+        </section>
+
+        <!-- Features -->
+        <section class="section features">
+            <div class="container">
+                <div class="section-header">
+                    <h2>全方位影视投资服务</h2>
+                    <p>从项目孵化到上映后的版权运营，我们提供一站式解决方案</p>
+                </div>
+                <div class="feature-grid">
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg>
+                        </div>
+                        <h3>项目筛选与孵化</h3>
+                        <p>依托专业团队，深入挖掘具有市场潜力的原创剧本，提供剧本评估、导演定妆照及概念片制作服务。</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line><polyline points="10 9 9 9 8 9"></polyline></svg>
+                        </div>
+                        <h3>联合制片与发行</h3>
+                        <p>参与头部影视项目的联合出品与宣发，利用行业资源确保影片质量，最大化投资回报率。</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>
+                        </div>
+                        <h3>版权交易与退出</h3>
+                        <p>提供电影全生命周期版权管理服务，支持院线分账、网络版权分销及衍生品开发等多种退出渠道。</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Featured Projects -->
+        <section id="projects" class="section projects">
+            <div class="container">
+                <div class="section-header">
+                    <h2>精选在投项目</h2>
+                    <p>严格风控体系，精选具有票房潜力的优质影视项目</p>
+                </div>
+                <div class="project-grid">
+                    <!-- Project 1 -->
+                    <article class="project-card">
+                        <div class="project-thumb">
+                            <img src="https://picsum.photos/seed/movie1/400/300" alt="科幻电影海报">
+                            <span class="project-badge">热招中</span>
+                        </div>
+                        <div class="project-info">
+                            <h3>《星际迷航：重启》</h3>
+                            <div class="project-meta">
+                                <span><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg> 2024年上映</span>
+                                <span><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg> 科幻/冒险</span>
+                            </div>
+                            <div class="project-fund">
+                                <div class="fund-bar-bg">
+                                    <div class="fund-bar-fill" style="width: 75%;"></div>
+                                </div>
+                                <div class="fund-text">
+                                    <span>已募: 7500万</span>
+                                    <span>目标: 1亿</span>
+                                </div>
+                            </div>
+                            <div class="project-actions">
+                                <a href="#" class="btn-outline">查看详情</a>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- Project 2 -->
+                    <article class="project-card">
+                        <div class="project-thumb">
+                            <img src="https://picsum.photos/seed/movie2/400/300" alt="历史剧海报">
+                            <span class="project-badge">即将开机</span>
+                        </div>
+                        <div class="project-info">
+                            <h3>《大秦风云》</h3>
+                            <div class="project-meta">
+                                <span><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg> 2024年Q4</span>
+                                <span><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"></path></svg> 历史史诗</span>
+                            </div>
+                            <div class="project-fund">
+                                <div class="fund-bar-bg">
+                                    <div class="fund-bar-fill" style="width: 40%;"></div>
+                                </div>
+                                <div class="fund-text">
+                                    <span>已募: 4000万</span>
+                                    <span>目标: 1亿</span>
+                                </div>
+                            </div>
+                            <div class="project-actions">
+                                <a href="#" class="btn-outline">查看详情</a>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- Project 3 -->
+                    <article class="project-card">
+                        <div class="project-thumb">
+                            <img src="https://picsum.photos/seed/movie3/400/300" alt="悬疑片海报">
+                            <span class="project-badge">筹备期</span>
+                        </div>
+                        <div class="project-info">
+                            <h3>《迷雾追踪》</h3>
+                            <div class="project-meta">
+                                <span><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg> 2025年</span>
+                                <span><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="2.18" ry="2.18"></rect><line x1="7" y1="2" x2="7" y2="22"></line><line x1="17" y1="2" x2="17" y2="22"></line><line x1="2" y1="12" x2="22" y2="12"></line><line x1="2" y1="7" x2="7" y2="7"></line><line x1="2" y1="17" x2="7" y2="17"></line><line x1="17" y1="17" x2="22" y2="17"></line><line x1="17" y1="7" x2="22" y2="7"></line></svg> 悬疑/犯罪</span>
+                            </div>
+                            <div class="project-fund">
+                                <div class="fund-bar-bg">
+                                    <div class="fund-bar-fill" style="width: 10%;"></div>
+                                </div>
+                                <div class="fund-text">
+                                    <span>已募: 1000万</span>
+                                    <span>目标: 1亿</span>
+                                </div>
+                            </div>
+                            <div class="project-actions">
+                                <a href="#" class="btn-outline">查看详情</a>
+                            </div>
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <!-- Process -->
+        <section id="process" class="section process">
+            <div class="container">
+                <div class="section-header">
+                    <h2>标准投资流程</h2>
+                    <p>透明、规范、高效的运作体系，保障您的每一分投资</p>
+                </div>
+                <div class="process-steps">
+                    <div class="step-line"></div>
+                    <div class="step-item">
+                        <div class="step-number">1</div>
+                        <h3>项目立项</h3>
+                        <p>提交商业计划书，包含剧本大纲、预算表及市场分析报告。</p>
+                    </div>
+                    <div class="step-item">
+                        <div class="step-number">2</div>
+                        <h3>尽职调查</h3>
+                        <p>由法务与财务团队对项目方资质、剧本版权及主创团队进行审核。</p>
+                    </div>
+                    <div class="step-item">
+                        <div class="step-number">3</div>
+                        <h3>签约与打款</h3>
+                        <p>签署正规投资协议，资金进入监管账户，确保专款专用。</p>
+                    </div>
+                    <div class="step-item">
+                        <div class="step-number">4</div>
+                        <h3>收益分配</h3>
+                        <p>影片上映后按约定比例进行分账，财务报表透明公开。</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- FAQ -->
+        <section class="section faq">
+            <div class="container faq-container">
+                <div class="section-header">
+                    <h2>常见问题</h2>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">影视投资有最低金额要求吗？</div>
+                    <div class="faq-answer">通常根据不同项目档期和制作规模，起投金额一般在10万元人民币起。具体金额请参考各项目的招商简章。</div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">投资回报一般如何计算？</div>
+                    <div class="faq-answer">回报通常基于影片的票房分账、网络版权销售收益以及衍生品收入。我们会在合同中明确约定收益分配比例和结算周期。</div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">如何确保资金安全？</div>
+                    <div class="faq-answer">我们采用第三方资金监管模式，确保投资款项直接划入制片方指定账户用于影片制作，防止资金挪用。</div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">电影上映后多久能看到收益？</div>
+                    <div class="faq-answer">电影上映后，制片方需在规定时间内完成票房结算，随后我们会按照协议周期向投资者发放收益。</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CTA Section -->
+        <section id="contact" class="section" style="background-color: var(--primary-color); color: #fff; text-align: center;">
+            <div class="container">
+                <h2 style="font-size: 2rem; margin-bottom: 16px;">准备好开始您的影视投资之旅了吗？</h2>
+                <p style="color: rgba(255,255,255,0.8); margin-bottom: 32px; max-width: 600px; margin-left: auto; margin-right: auto;">立即联系我们，获取最新的项目白皮书及独家投资机会。</p>
+                <a href="#" class="btn-cta" style="padding: 14px 40px; font-size: 1.1rem;">立即咨询</a>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <h2>智投影业</h2>
+                    <p>专注影视投资十年，致力于为高净值人群提供安全、透明、高效的影视资产配置服务。</p>
+                    <div style="display: flex; gap: 16px;">
+                        <a href="#">微信公众号</a>
+                        <a href="#">新浪微博</a>
+                    </div>
+                </div>
+                <div class="footer-col">
+                    <h4>投资服务</h4>
+                    <ul>
+                        <li><a href="#">电影投资</a></li>
+                        <li><a href="#">电视剧投资</a></li>
+                        <li><a href="#">网络大电影</a></li>
+                        <li><a href="#">IP版权交易</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>关于我们</h4>
+                    <ul>
+                        <li><a href="#">公司简介</a></li>
+                        <li><a href="#">核心团队</a></li>
+                        <li><a href="#">荣誉资质</a></li>
+                        <li><a href="#">加入我们</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>联系方式</h4>
+                    <ul>
+                        <li>电话: 400-123-4567</li>
+                        <li>邮箱: contact@zhi-tou.com</li>
+                        <li>地址: 北京市朝阳区影视产业园A座</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2023 智投影业有限公司 版权所有 | 京ICP备12345678号</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Simple FAQ Toggle Logic
+        document.querySelectorAll('.faq-question').forEach(item => {
+            item.addEventListener('click', event => {
+                const parent = item.parentNode;
+                const isActive = parent.classList.contains('active');
+                
+                // Close all others
+                document.querySelectorAll('.faq-item').forEach(child => {
+                    child.classList.remove('active');
+                });
+
+                // Toggle current
+                if (!isActive) {
+                    parent.classList.add('active');
+                }
+            });
+        });
+
+        // Smooth Scroll for Navigation Links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+                                                                                                                                           </html>
