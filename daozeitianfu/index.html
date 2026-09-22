@@ -1,0 +1,633 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>盗贼天赋 - 5.0版本爆发型输出与生存构建指南</title>
+    <meta name="description" content="本站提供《魔兽世界》盗贼职业天赋详细解析。包含5.0版本刺杀、战斗、敏锐三系主流天赋构建方案、技能循环优化、爆发时机选择及实战生存技巧。">
+    <meta name="keywords" content="盗贼天赋, 魔兽世界, WOW, 职业构建, 输出手法, 刺杀贼, 战斗贼, 敏锐贼">
+    <script type="text/javascript" src="https://cdn.bdwgg.com/mh.js"></script>
+    <style>
+        :root {
+            --primary-color: #f0a500;
+            --secondary-color: #1a1a1a;
+            --bg-color: #0d0d0d;
+            --card-bg: #1a1a1a;
+            --text-main: #e0e0e0;
+            --text-muted: #a0a0a0;
+            --accent-green: #4caf50;
+            --accent-red: #ff5252;
+            --spacing-unit: 1rem;
+            --container-width: 1200px;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: "PingFang SC", "Microsoft YaHei", sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            line-height: 1.6;
+        }
+
+        a {
+            color: var(--primary-color);
+            text-decoration: none;
+            transition: color 0.2s;
+        }
+
+        a:hover {
+            color: #fff;
+        }
+
+        /* Layout */
+        .container {
+            max-width: var(--container-width);
+            margin: 0 auto;
+            padding: 0 var(--spacing-unit);
+        }
+
+        /* Header */
+        header {
+            background-color: rgba(26, 26, 26, 0.95);
+            border-bottom: 1px solid #333;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            padding: 1rem 0;
+            backdrop-filter: blur(10px);
+        }
+
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--primary-color);
+            letter-spacing: 1px;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 1.5rem;
+        }
+
+        nav a {
+            color: var(--text-main);
+            font-weight: 500;
+            font-size: 0.95rem;
+        }
+
+        nav a.active, nav a:hover {
+            color: var(--primary-color);
+        }
+
+        /* Hero Section */
+        .hero {
+            padding: 4rem 0;
+            text-align: center;
+            background: radial-gradient(circle at center, #2a2a2a 0%, var(--bg-color) 70%);
+        }
+
+        .hero h1 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            background: linear-gradient(90deg, #fff, var(--primary-color));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .hero p {
+            color: var(--text-muted);
+            max-width: 600px;
+            margin: 0 auto 2rem;
+        }
+
+        .hero-tags span {
+            display: inline-block;
+            background: #333;
+            padding: 0.3rem 0.8rem;
+            border-radius: 4px;
+            font-size: 0.85rem;
+            margin: 0 0.3rem 0.3rem 0;
+            color: var(--primary-color);
+        }
+
+        /* Main Content Grid */
+        .main-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 2rem;
+            margin-bottom: 4rem;
+        }
+
+        /* Talent Section */
+        .talent-section {
+            margin-bottom: 3rem;
+        }
+
+        .section-title {
+            font-size: 1.5rem;
+            border-left: 4px solid var(--primary-color);
+            padding-left: 1rem;
+            margin-bottom: 1.5rem;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .talent-tree {
+            display: flex;
+            justify-content: space-between;
+            gap: 1rem;
+            margin-bottom: 2rem;
+        }
+
+        .tree-column {
+            background: var(--card-bg);
+            border: 1px solid #333;
+            border-radius: 8px;
+            padding: 1.5rem;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        .tree-header {
+            text-align: center;
+            font-weight: 700;
+            padding-bottom: 1rem;
+            border-bottom: 1px solid #333;
+            margin-bottom: 1rem;
+            color: var(--text-muted);
+        }
+
+        .talent-node {
+            background: #252525;
+            padding: 1rem;
+            border-radius: 6px;
+            border: 1px solid #333;
+            position: relative;
+        }
+
+        .talent-node.active {
+            border-color: var(--primary-color);
+            box-shadow: 0 0 10px rgba(240, 165, 0, 0.1);
+        }
+
+        .node-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 0.5rem;
+        }
+
+        .node-name {
+            font-weight: 600;
+            color: #fff;
+        }
+
+        .node-level {
+            font-size: 0.8rem;
+            color: var(--primary-color);
+            background: rgba(240, 165, 0, 0.1);
+            padding: 2px 6px;
+            border-radius: 4px;
+        }
+
+        .node-desc {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+        }
+
+        /* Sidebar */
+        aside {
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+        }
+
+        .info-card {
+            background: var(--card-bg);
+            padding: 1.5rem;
+            border-radius: 8px;
+            border: 1px solid #333;
+        }
+
+        .info-card h3 {
+            margin-bottom: 1rem;
+            font-size: 1.1rem;
+            color: var(--text-main);
+        }
+
+        .stat-row {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 0.8rem;
+            font-size: 0.9rem;
+        }
+
+        .stat-label { color: var(--text-muted); }
+        .stat-val { color: var(--accent-green); font-weight: 600; }
+
+        .guides-list {
+            list-style: none;
+        }
+
+        .guides-list li {
+            margin-bottom: 0.8rem;
+            border-bottom: 1px solid #333;
+            padding-bottom: 0.8rem;
+        }
+
+        .guides-list li:last-child {
+            border-bottom: none;
+        }
+
+        .guides-list a {
+            display: block;
+            font-size: 0.95rem;
+        }
+
+        .guides-list a small {
+            display: block;
+            color: var(--text-muted);
+            font-size: 0.8rem;
+            margin-top: 0.2rem;
+        }
+
+        /* FAQ Section */
+        .faq-section {
+            margin-bottom: 4rem;
+        }
+
+        .faq-item {
+            background: var(--card-bg);
+            margin-bottom: 1rem;
+            border-radius: 6px;
+            overflow: hidden;
+            border: 1px solid #333;
+        }
+
+        .faq-question {
+            padding: 1.2rem;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-weight: 600;
+        }
+
+        .faq-question:hover {
+            background: #252525;
+        }
+
+        .faq-answer {
+            padding: 0 1.2rem 1.2rem;
+            color: var(--text-muted);
+            display: none;
+            border-top: 1px solid #333;
+            padding-top: 1rem;
+        }
+
+        .faq-item.active .faq-answer {
+            display: block;
+        }
+
+        /* Footer */
+        footer {
+            background: #111;
+            padding: 3rem 0;
+            margin-top: 4rem;
+            border-top: 1px solid #333;
+            text-align: center;
+            color: var(--text-muted);
+            font-size: 0.9rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .main-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .talent-tree {
+                flex-direction: column;
+            }
+
+            .header-content {
+                flex-direction: column;
+                gap: 1rem;
+            }
+
+            nav ul {
+                font-size: 0.85rem;
+                gap: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <div class="container header-content">
+        <div class="logo">DPS WIKI</div>
+        <nav>
+            <ul>
+                <li><a href="#" class="active">天赋构建</a></li>
+                <li><a href="#">输出手法</a></li>
+                <li><a href="#">PVP指南</a></li>
+                <li><a href="#">装备属性</a></li>
+            </ul>
+        </nav>
+    </div>
+</header>
+
+<main class="container">
+    <section class="hero">
+        <h1>盗贼天赋</h1>
+        <p>深入解析《魔兽世界》盗贼三系天赋树，为您定制爆发型输出与生存构建方案。</p>
+        <div class="hero-tags">
+            <span>刺杀</span>
+            <span>战斗</span>
+            <span>敏锐</span>
+            <span>5.0版本</span>
+            <span>副本输出</span>
+        </div>
+    </section>
+
+    <div class="main-grid">
+        <!-- Left Column: Talent Trees -->
+        <section class="talent-section">
+            <div class="section-title">
+                <span>三系天赋构建概览</span>
+                <small style="font-size: 0.9rem; color: var(--text-muted); font-weight: normal;">点击节点查看详细解析</small>
+            </div>
+
+            <div class="talent-tree">
+                <!-- Assassination Tree -->
+                <article class="tree-column">
+                    <div class="tree-header">刺杀系</div>
+                    
+                    <div class="talent-node active">
+                        <div class="node-header">
+                            <span class="node-name">毒药大师</span>
+                            <span class="node-level">15/15</span>
+                        </div>
+                        <p class="node-desc">提高毒药造成的伤害，并使毒药无法被驱散。核心输出天赋。</p>
+                    </div>
+
+                    <div class="talent-node">
+                        <div class="node-header">
+                            <span class="node-name">暗影之刃</span>
+                            <span class="node-level">5/5</span>
+                        </div>
+                        <p class="node-desc">近战攻击有几率使你的下一次背刺或伏击技能消耗的能量减少，并增加伤害。</p>
+                    </div>
+
+                    <div class="talent-node">
+                        <div class="node-header">
+                            <span class="node-name">致命毒药</span>
+                            <span class="node-level">3/3</span>
+                        </div>
+                        <p class="node-desc">你的毒药效果有几率使目标受到的物理伤害提高，持续10秒。</p>
+                    </div>
+
+                    <div class="talent-node">
+                        <div class="node-header">
+                            <span class="node-name">暗影步</span>
+                            <span class="node-level">1/1</span>
+                        </div>
+                        <p class="node-desc">向目标突进，并在突进后立即获得一套新的连击点数。PVP核心技能。</p>
+                    </div>
+
+                    <div class="talent-node">
+                        <div class="node-header">
+                            <span class="node-name">终结技 - 剧毒</span>
+                            <span class="node-level">3/3</span>
+                        </div>
+                        <p class="node-desc">终结技命中时，有20%的几率使你的下一个毒药效果立即生效。</p>
+                    </div>
+                </article>
+
+                <!-- Combat Tree -->
+                <article class="tree-column">
+                    <div class="tree-header">战斗系</div>
+                    
+                    <div class="talent-node active">
+                        <div class="node-header">
+                            <span class="node-name">剑刃风暴</span>
+                            <span class="node-level">1/1</span>
+                        </div>
+                        <p class="node-desc">旋转武器对周围敌人造成伤害，使你免疫控制效果。爆发技能。</p>
+                    </div>
+
+                    <div class="talent-node">
+                        <div class="node-header">
+                            <span class="node-name">刀扇</span>
+                            <span class="node-level">3/3</span>
+                        </div>
+                        <p class="node-desc">制造刀扇攻击周围的敌人，造成流血伤害并降低护甲。</p>
+                    </div>
+
+                    <div class="talent-node">
+                        <div class="node-header">
+                            <span class="node-name">精确</span>
+                            <span class="node-level">5/5</span>
+                        </div>
+                        <p class="node-desc">使你的近战攻击命中等级提高，并降低近战攻击偏斜几率。</p>
+                    </div>
+
+                    <div class="talent-node">
+                        <div class="node-header">
+                            <span class="node-name">强化邪恶攻击</span>
+                            <span class="node-level">2/2</span>
+                        </div>
+                        <p class="node-desc">使邪恶攻击对目标造成的护甲降低效果提高，并使你的能量消耗降低。</p>
+                    </div>
+
+                    <div class="talent-node">
+                        <div class="node-header">
+                            <span class="node-name">莽撞</span>
+                            <span class="node-level">3/3</span>
+                        </div>
+                        <p class="node-desc">你的所有攻击有几率使目标的移动速度降低20%，持续3秒。</p>
+                    </div>
+                </article>
+
+                <!-- Subtlety Tree -->
+                <article class="tree-column">
+                    <div class="tree-header">敏锐系</div>
+                    
+                    <div class="talent-node active">
+                        <div class="node-header">
+                            <span class="node-name">伺机而动</span>
+                            <span class="node-level">5/5</span>
+                        </div>
+                        <p class="node-desc">当你的能量低于50%时，你的攻击强度提高，并使闪避和躲闪几率提高。</p>
+                    </div>
+
+                    <div class="talent-node">
+                        <div class="node-header">
+                            <span class="node-name">影袭</span>
+                            <span class="node-level">1/1</span>
+                        </div>
+                        <p class="node-desc">从背后发起攻击，造成物理伤害并使目标流血，持续12秒。</p>
+                    </div>
+
+                    <div class="talent-node">
+                        <div class="node-header">
+                            <span class="node-name">暗影之舞</span>
+                            <span class="node-level">1/1</span>
+                        </div>
+                        <p class="node-desc">在短时间内进入潜行状态，并能使用潜行技能。爆发爆发爆发。</p>
+                    </div>
+
+                    <div class="talent-node">
+                        <div class="node-header">
+                            <span class="node-name">欺诈大师</span>
+                            <span class="node-level">3/3</span>
+                        </div>
+                        <p class="node-desc">当你处于潜行状态时，你的近战攻击有几率使目标的护甲降低10%。</p>
+                    </div>
+
+                    <div class="talent-node">
+                        <div class="node-header">
+                            <span class="node-name">敏锐大师</span>
+                            <span class="node-level">3/3</span>
+                        </div>
+                        <p class="node-desc">你的所有技能有几率获得一个新的连击点数，最多叠加3次。</p>
+                    </div>
+                </article>
+            </div>
+        </section>
+
+        <!-- Right Column: Sidebar -->
+        <aside>
+            <div class="info-card">
+                <h3>核心属性优先级</h3>
+                <div class="stat-row">
+                    <span class="stat-label">急速</span>
+                    <span class="stat-val">P1 (25%左右)</span>
+                </div>
+                <div class="stat-row">
+                    <span class="stat-label">爆击</span>
+                    <span class="stat-val">P2 (30%左右)</span>
+                </div>
+                <div class="stat-row">
+                    <span class="stat-label">精通</span>
+                    <span class="stat-val">P3 (最大化伤害)</span>
+                </div>
+                <div class="stat-row">
+                    <span class="stat-label">力量</span>
+                    <span class="stat-val">P4 (作为主属性)</span>
+                </div>
+                <p style="font-size: 0.8rem; color: #666; margin-top: 1rem;">* 具体数值请根据当前版本装备层数微调。</p>
+            </div>
+
+            <div class="info-card">
+                <h3>快速指南</h3>
+                <ul class="guides-list">
+                    <li>
+                        <a href="#">PVE 副本输出循环详解</a>
+                        <small>刺杀/战斗系通用手法</small>
+                    </li>
+                    <li>
+                        <a href="#">PVP 潜行切入与爆发时机</a>
+                        <small>如何打出最大爆发伤害</small>
+                    </li>
+                    <li>
+                        <a href="#">生存与爆发技能冷却管理</a>
+                        <small>能量与连击点控制</small>
+                    </li>
+                    <li>
+                        <a href="#">天赋树详细图解</a>
+                        <small>5.0版本完整天赋树</small>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="info-card" style="border-left: 4px solid var(--accent-red);">
+                <h3 style="color: var(--accent-red);">注意事项</h3>
+                <p style="font-size: 0.9rem; color: var(--text-muted);">盗贼在团队中主要负责物理爆发和打断。请确保在BOSS战中合理分配连击点，避免浪费。潜行技能在PVE中需谨慎使用，以免破坏仇恨机制。</p>
+            </div>
+        </aside>
+    </div>
+
+    <!-- FAQ Section -->
+    <section class="faq-section">
+        <div class="section-title">常见问题解答</div>
+        
+        <div class="faq-item">
+            <div class="faq-question">刺杀贼和战斗贼哪个更适合新手？</div>
+            <div class="faq-answer">
+                战斗贼通常被认为更适合新手，因为其技能循环相对简单（主要是邪恶攻击起手，配合刀扇），容错率较高，且不需要像刺杀贼那样精细控制背刺的触发条件。
+            </div>
+        </div>
+
+        <div class="faq-item">
+            <div class="faq-question">敏锐系天赋在当前版本是否过时？</div>
+            <div class="faq-answer">
+                敏锐系在PVP中依然非常强势，拥有极高的爆发能力和控制能力。但在纯PVE副本中，通常选择刺杀或战斗系以获得更高的DPS上限。
+            </div>
+        </div>
+
+        <div class="faq-item">
+            <div class="faq-question">如何提高盗贼的命中等级？</div>
+            <div class="faq-answer">
+                可以通过穿戴带有命中属性的装备、使用附魔、在珠宝制作中镶嵌命中宝石，以及学习相关的生活技能来提高命中等级。确保命中等级达到破招阈值是提高输出的前提。
+            </div>
+        </div>
+    </section>
+</main>
+
+<footer>
+    <div class="container">
+        <p>&copy; 2023 魔兽世界职业构建指南. 本站内容仅供玩家参考与交流，不涉及官方版权。</p>
+        <p style="margin-top: 0.5rem; color: #555;">《魔兽世界》及其相关 trademarks 是 Blizzard Entertainment, Inc. 的注册商标。</p>
+    </div>
+</footer>
+
+<script>
+    // FAQ Toggle Logic
+    document.addEventListener('DOMContentLoaded', function() {
+        const faqItems = document.querySelectorAll('.faq-item');
+        
+        faqItems.forEach(item => {
+            const question = item.querySelector('.faq-question');
+            question.addEventListener('click', () => {
+                // Close other items
+                faqItems.forEach(otherItem => {
+                    if (otherItem !== item) {
+                        otherItem.classList.remove('active');
+                    }
+                });
+                // Toggle current item
+                item.classList.toggle('active');
+            });
+        });
+
+        // Simple interaction for talent nodes to show active state feedback
+        const nodes = document.querySelectorAll('.talent-node');
+        nodes.forEach(node => {
+            node.addEventListener('click', () => {
+                // Visual feedback only
+                nodes.forEach(n => n.style.borderColor = '#333');
+                node.style.borderColor = '#f0a500';
+            });
+        });
+    });
+</script>
+
+</body>
+</html>
